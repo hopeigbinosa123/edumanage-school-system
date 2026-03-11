@@ -64,17 +64,19 @@ function StudentRecords({ students, setStudents }) {
   );
 
   return (
-    <div>
-      <h2 className="text-xl font-bold">Student Records</h2>
+    <div className="p-6 bg-white shadow rounded">
+      <h2 className="text-2xl font-bold mb-4">Student Records</h2>
 
       {/* Form */}
-      <form onSubmit={handleSubmit} className="flex gap-2 my-4">
-        <input name="name" placeholder="Name" value={form.name} onChange={handleChange} />
-        <input name="grade" placeholder="Grade" value={form.grade} onChange={handleChange} />
-        <input name="subject" placeholder="Subject" value={form.subject} onChange={handleChange} />
-        <input name="mark" placeholder="Mark (%)" value={form.mark} onChange={handleChange} />
-        <input name="attendance" placeholder="Attendance (%)" value={form.attendance} onChange={handleChange} />
-        <button type="submit">{editIndex !== null ? "Update" : "Add"} Student</button>
+      <form onSubmit={handleSubmit} className="flex flex-wrap gap-2 mb-4">
+        <input className="border p-2 rounded flex-1" name="name" placeholder="Name" value={form.name} onChange={handleChange} />
+        <input className="border p-2 rounded flex-1" name="grade" placeholder="Grade" value={form.grade} onChange={handleChange} />
+        <input className="border p-2 rounded flex-1" name="subject" placeholder="Subject" value={form.subject} onChange={handleChange} />
+        <input className="border p-2 rounded flex-1" name="mark" placeholder="Mark (%)" value={form.mark} onChange={handleChange} />
+        <input className="border p-2 rounded flex-1" name="attendance" placeholder="Attendance (%)" value={form.attendance} onChange={handleChange} />
+        <button type="submit" className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+          {editIndex !== null ? "Update" : "Add"} Student
+        </button>
       </form>
 
       {/* Search */}
@@ -83,34 +85,48 @@ function StudentRecords({ students, setStudents }) {
         placeholder="Search by name..."
         value={search}
         onChange={(e) => setSearch(e.target.value)}
-        className="my-2"
+        className="border p-2 rounded w-full mb-4"
       />
 
       {/* Table */}
-      <table border="1" className="w-full mt-4">
-        <thead>
+      <table className="w-full border-collapse">
+        <thead className="bg-gray-100">
           <tr>
-            <th>Name</th>
-            <th>Grade</th>
-            <th>Subject</th>
-            <th>Mark (%)</th>
-            <th>Attendance (%)</th>
-            <th>Status</th>
-            <th>Actions</th>
+            <th className="border p-2">Name</th>
+            <th className="border p-2">Grade</th>
+            <th className="border p-2">Subject</th>
+            <th className="border p-2">Mark (%)</th>
+            <th className="border p-2">Attendance (%)</th>
+            <th className="border p-2">Status</th>
+            <th className="border p-2">Actions</th>
           </tr>
         </thead>
         <tbody>
           {filteredStudents.map((s, i) => (
-            <tr key={i}>
-              <td>{s.name}</td>
-              <td>{s.grade}</td>
-              <td>{s.subject}</td>
-              <td>{s.mark}</td>
-              <td>{s.attendance}</td>
-              <td>{s.mark < 50 || s.attendance < 70 ? "At Risk" : "Active"}</td>
-              <td>
-                <button onClick={() => editStudent(i)}>Edit</button>
-                <button onClick={() => deleteStudent(i)}>Delete</button>
+            <tr key={i} className="hover:bg-gray-50">
+              <td className="border p-2">{s.name}</td>
+              <td className="border p-2">{s.grade}</td>
+              <td className="border p-2">{s.subject}</td>
+              <td className="border p-2">{s.mark}</td>
+              <td className="border p-2">{s.attendance}</td>
+              <td className="border p-2">
+                <span className={`px-2 py-1 rounded text-white ${s.mark < 50 || s.attendance < 70 ? "bg-red-600" : "bg-green-600"}`}>
+                  {s.mark < 50 || s.attendance < 70 ? "At Risk" : "Active"}
+                </span>
+              </td>
+              <td className="border p-2">
+                <button
+                  className="bg-yellow-500 text-white px-2 py-1 rounded mr-2 hover:bg-yellow-600"
+                  onClick={() => editStudent(i)}
+                >
+                  Edit
+                </button>
+                <button
+                  className="bg-red-600 text-white px-2 py-1 rounded hover:bg-red-700"
+                  onClick={() => deleteStudent(i)}
+                >
+                  Delete
+                </button>
               </td>
             </tr>
           ))}
