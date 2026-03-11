@@ -27,9 +27,9 @@ EduManage enables school administrators and educators to:
 
 This project is **front-end only** (no backend or database). Data persists only during the session.
 
----
 
-## 🛠 Technology Stack
+
+## Technology Stack
 - **React (JSX)** → Component-based UI
 - **Vite** → Fast build tool
 - **Tailwind CSS** → Styling and responsive layout
@@ -38,7 +38,7 @@ This project is **front-end only** (no backend or database). Data persists only 
 
 ---
 
-## 📂 Current Structure
+## Current Structure
 ```
 src/
  ├── components/
@@ -50,18 +50,6 @@ src/
  ├── index.js
  └── index.css
 ```
-
----
-
-## 📅 SDLC Progress
-- **Planning** ✅
-- **Analysis** ✅
-- **Design** ✅ (component skeleton created)
-- **Implementation** ⏳ (next step: Student Records module)
-- **Testing** ⏳
-- **Documentation** ⏳
-
----
 
 ## 🚀 Setup Instructions
 1. Clone the repository:
@@ -79,14 +67,49 @@ src/
    ```
 4. Open in browser at `http://localhost:5173/`
 
----
+## 🎓 Student Records Module
+The Student Records module allows educators to:
+- Add new student records (name, grade, subject, mark, attendance).
+- Edit existing student information.
+- Delete student records.
+- Search students by name.
+- Automatically classify students as **Active** or **At Risk** based on marks (<50%) or attendance (<70%).
 
-## 📌 Next Steps
-- Implement **Student Records module** (CRUD + validation).
-- Update README with usage instructions for each module.
-- Add screenshots/wireframes once UI is styled.
+Validation ensures:
+- All fields must be completed.
+- Marks and attendance must be numeric values between 0 and 100.
 
----
+## 📊 Grade Analysis Module
+The Grade Analysis module provides:
+- A **leaderboard** of students sorted by marks (highest first).
+- Classification into categories:
+  - Distinction (80%+)
+  - Merit (70–79%)
+  - Pass (60–69%)
+  - Symbol E (50–59%)
+  - Fail (<50%)
+- Colour-coded progress bars to visually represent student performance.
+
+## 📅 Attendance Tracker Module
+The Attendance Tracker module provides:
+- Visual progress bars for each student’s attendance percentage.
+- Colour-coded tiers:
+  - Green (90%+)
+  - Blue (80–89%)
+  - Yellow (70–79%)
+  - Red (<70%)
+- Flags students below **70% attendance** with a “Needs Attention” alert.
+
+## 📈 Dashboard Module
+The Dashboard module provides:
+- **Summary statistics**:
+  - Total number of students
+  - Average mark across all students
+  - Average attendance rate
+  - Count of at-risk students (mark <50% or attendance <70%)
+- **Subject performance breakdown**:
+  - Average marks per subject
+- A clear overview of the school’s academic and attendance trends.
 
 ## 📄 License
 This project is for educational purposes under the **System Development N5 curriculum**.
