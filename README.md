@@ -54,7 +54,7 @@ src/
 ## 🚀 Setup Instructions
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/edumanage.git
+   git clone https://github.com/hopeigbinosa123/edumanage-school-system.git
    cd edumanage
    ```
 2. Install dependencies:
