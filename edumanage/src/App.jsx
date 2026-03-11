@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import Dashboard from "./components/Dashboard";
-import StudentRecords from "./components/StudentRecords";
-import GradeAnalysis from "./components/GradeAnalysis";
-import AttendanceTracker from "./components/AttendanceTracker";
+import Dashboard from "./components/Dashboard.jsx";
+import StudentRecords from "./components/StudentRecords.jsx";
+import GradeAnalysis from "./components/GradeAnalysis.jsx";
+import AttendanceTracker from "./components/AttendanceTracker.jsx";
 
 function App() {
   const [students, setStudents] = useState([]);
